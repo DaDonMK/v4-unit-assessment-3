@@ -8,13 +8,16 @@
     myFunc should return getSecretString
   */
   
-  //CODE HERE
-
+ function myFunc(){
+  let myStr = 'super secret string'
+  return function getSecretString(){
+    return myStr
+  }
+}
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
-  //CODE HERE
-  
+let secretString = myFunc()
   
   ////////////PROBLEM 2////////////
 
@@ -28,29 +31,37 @@
     The lightSwitch function should return flipTheSwitch.
   */
   
-  //CODE HERE
-
+function lightSwitch(){
+  let isTheLightOn = false
+  return function flipTheSwitch(){
+    if(isTheLightOn === false){
+      isTheLightOn = true
+      return 'The light is on'
+    }else{
+      isTheLightOn = false
+      return 'The light is off'
+    }
+  }
+}
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
-  //CODE HERE
-
+let kitchenSwitch = lightSwitch()
   
   //Invoke kitchenSwitch.
 
-  //CODE HERE
-  
+kitchenSwitch()  
+
   
   //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
 
-  //CODE HERE
-  
+let bathroomSwitch = lightSwitch()  
   
   //Invoke bathroomSwitch twice.
   
-  //CODE HERE
+bathroomSwitch()
+bathroomSwitch()
 
-  
   
   ////////////PROBLEM 3////////////
 
@@ -63,9 +74,23 @@
       - 'prunePlant' should subtract 1 from the height and return the new height
   */
 
-  //CODE HERE
-
-
+function plantTracker(){
+  let plant = 'fern'
+  let height = 12
+  function readInfo(){
+      function waterPlant(){
+        height += 1
+        function prunePlant(){
+        height -= 1 
+          return 'This is a ' + plant + ' that is ' + height + ' inches tall.'
+        }
+        return prunePlant()
+      }
+      return waterPlant()
+  }
+  return readInfo()
+}
+console.log(plantTracker())
   ////////////PROBLEM 4////////////
 
   /*
