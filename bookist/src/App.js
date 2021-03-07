@@ -18,7 +18,8 @@ class App extends Component {
   }
   
   addToShelf(title){
-    this.state.shelf.push(title)
+     this.state.shelf.push(title)
+     console.log(this.state.shelf)
   }
   
   render(){
