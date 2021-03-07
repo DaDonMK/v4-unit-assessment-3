@@ -10,16 +10,31 @@ class App extends Component {
   constructor(){
     super()
 
-    this.state ={
+    this.state = {
       books : data,
       shelf : []
     }
      this.addToShelf = this.addToShelf.bind(this)
   }
   
-  addToShelf(title){
-     this.state.shelf.push(title)
-     console.log(this.state.shelf)
+  addToShelf( title){
+    let count = 1
+    let newShelf = this.state.shelf
+    for(var i = 0; i < newShelf.length; i++){
+      if(newShelf[i] === title){
+        count = 0
+      }
+    }
+    if(count === 1){
+      newShelf.push(title)
+    }
+    
+    this.setState({shelf: newShelf})
+  //  console.log(this.state.shelf)
+  }
+
+  clearShelf(){
+
   }
   
   render(){
@@ -31,7 +46,7 @@ class App extends Component {
       <Shelf shelf={this.state.shelf}/>      
       
     </div>
-  )
+   )
   }
 }
   

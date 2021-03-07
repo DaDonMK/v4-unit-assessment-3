@@ -10,7 +10,7 @@ class BookList extends Component{
     // }
 
     render(){
-        console.log(this.props.books)
+        // console.log(this.props.books)
         let mappedbooks = this.props.books.map((element) => {
            return ([
            <img src = {element.img} alt= 'Books' onClick={() => {this.props.addToShelf(element.title)}}></img>,
