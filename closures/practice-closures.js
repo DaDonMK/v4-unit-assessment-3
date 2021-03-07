@@ -78,19 +78,23 @@ function plantTracker(){
   let plant = 'fern'
   let height = 12
   function readInfo(){
-      function waterPlant(){
-        height += 1
-        function prunePlant(){
-        height -= 1 
-          return 'This is a ' + plant + ' that is ' + height + ' inches tall.'
-        }
-        return prunePlant()
-      }
-      return waterPlant()
+    return 'This is a ' + plant + ' plant that is ' + height + ' inches tall.'
   }
-  return readInfo()
+  function waterPlant(){
+    return height += 1
+  }
+  function prunePlant(){
+    return height -= 1 
+    }
+
+    return {
+      readInfo: readInfo,
+      waterPlant: waterPlant,
+      prunePlant: prunePlant
+    }
+       
 }
-console.log(plantTracker())
+console.log(plantTracker().readInfo())
   ////////////PROBLEM 4////////////
 
   /*
@@ -103,19 +107,43 @@ console.log(plantTracker())
         - hint: try to find the index of the string first
   */
 
-  //CODE HERE
+function inventory(){
+  let products = []
+  
+  function readProducts(){
+    return products
+  }
+  function addToProducts(string){
+    products.push(string)
+
+  }
+  function deleteFromProducts(string2){
+  for(var i = 0; i < products.length; i++){
+    if(products[i] === string2){
+      products.splice(i, 1)
+    }
+  }
+
+}
+  return{
+    readProducts: readProducts,
+    addToProducts: addToProducts,
+    deleteFromProducts: deleteFromProducts
+  }
+
+}
 
 
   /*
     Create a variable called 'shoes' whose value is the invocation of inventory.
   */
 
-  //CODE HERE
-
+let shoes = inventory()
 
   /*
     Add an item to your shoes array using the addToProducts function
   */
 
-  //CODE HERE
+ shoes.addToProducts('Nike')
 
+ console.log(shoes.readProducts())
