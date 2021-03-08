@@ -17,6 +17,7 @@ class App extends Component {
     }
      this.addToShelf = this.addToShelf.bind(this)
      this.clearShelf = this.clearShelf.bind(this)
+     this.filterBooks = this.filterBooks.bind(this)
   }
   
   addToShelf(title){
@@ -30,24 +31,33 @@ class App extends Component {
     if(count === 1){
       newShelf.push(title)
     }
-    
     this.setState({shelf: newShelf})
-  //  console.log(this.state.shelf)
   }
 
   clearShelf(){
     this.setState({shelf: []})
   }
   
+  filterBooks(input){
+    let filteredBooks = this.state.books.filter((element)=>{
+      return element.title.includes(input)
+    })
+    // console.log('yuppp')
+    this.setState({books: filteredBooks})
+    console.log(filteredBooks)
+
+  }
+
   render(){
+    // console.log(this.state.shelf)
+
     console.log(this.state.books)
     return (
     <div className="App">
 
       <Header/>
+      <SearchBar filterBooks={this.filterBooks}/>     
       <BookList books={this.state.books} addToShelf={this.addToShelf}/>
-       <SearchBar/>     
-
       <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf}/> 
       
     </div>
