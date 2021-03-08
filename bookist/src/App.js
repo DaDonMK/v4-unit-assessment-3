@@ -4,6 +4,7 @@ import BookList from './Components/BookList';
 import Header from './Components/Header'
 import Shelf from './Components/Shelf';
 import {data} from './data'
+import SearchBar from './Components/SearchBar'
 
 class App extends Component {
 
@@ -15,9 +16,10 @@ class App extends Component {
       shelf : []
     }
      this.addToShelf = this.addToShelf.bind(this)
+     this.clearShelf = this.clearShelf.bind(this)
   }
   
-  addToShelf( title){
+  addToShelf(title){
     let count = 1
     let newShelf = this.state.shelf
     for(var i = 0; i < newShelf.length; i++){
@@ -34,16 +36,19 @@ class App extends Component {
   }
 
   clearShelf(){
-
+    this.setState({shelf: []})
   }
   
   render(){
     console.log(this.state.books)
     return (
     <div className="App">
+
       <Header/>
       <BookList books={this.state.books} addToShelf={this.addToShelf}/>
-      <Shelf shelf={this.state.shelf}/>      
+       <SearchBar/>     
+
+      <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf}/> 
       
     </div>
    )

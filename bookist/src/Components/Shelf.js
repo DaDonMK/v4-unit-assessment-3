@@ -15,7 +15,9 @@ export default class Shelf extends Component{
         return(
             <div className = 'Shelf'>
                 <h1>shelf</h1>
+                <button className = 'clear' onClick={this.props.clearShelf}>Clear Shelf</button>
                 <span>{mappedTitles}</span>
+
             </div>
         )
     }

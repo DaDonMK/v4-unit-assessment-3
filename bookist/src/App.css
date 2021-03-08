@@ -40,5 +40,7 @@
 .App{
   display: flex;
   justify-content: space-evenly;
-  justify-content: space-evenly;
+}
+.input{
+  height: 25px;
 }
