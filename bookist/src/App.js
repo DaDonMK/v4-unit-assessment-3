@@ -18,6 +18,7 @@ class App extends Component {
      this.addToShelf = this.addToShelf.bind(this)
      this.clearShelf = this.clearShelf.bind(this)
      this.filterBooks = this.filterBooks.bind(this)
+     this.reset = this.reset.bind(this)
   }
   
   addToShelf(title){
@@ -45,18 +46,19 @@ class App extends Component {
     // console.log('yuppp')
     this.setState({books: filteredBooks})
     console.log(filteredBooks)
+  }
 
+  reset(){
+    this.setState({books: data})
   }
 
   render(){
-    // console.log(this.state.shelf)
-
     console.log(this.state.books)
     return (
     <div className="App">
 
       <Header/>
-      <SearchBar filterBooks={this.filterBooks}/>     
+      <SearchBar filterBooks={this.filterBooks} reset={this.reset}/>     
       <BookList books={this.state.books} addToShelf={this.addToShelf}/>
       <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf}/> 
       
