@@ -13,8 +13,7 @@ export default class SearchBar extends Component{
         console.log(this.state.input)
     }
 
-    handleClick = ()=>{
-        //  console.log('hello')
+    handleClick = () => {
         this.props.filterBooks(this.state.input)
     }
 

@@ -40,7 +40,7 @@ class App extends Component {
   
   filterBooks(input){
     let filteredBooks = this.state.books.filter((element)=>{
-      return element.title.includes(input)
+      return (element.title.includes(input) || element.author.includes(input))
     })
     // console.log('yuppp')
     this.setState({books: filteredBooks})
